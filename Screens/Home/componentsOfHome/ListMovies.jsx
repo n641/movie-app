@@ -32,7 +32,8 @@ const ListMovies = ({navigation}) => {
     })
     return (
         <View style={{flex:1}}>
-            <View style={{borderBottomColor:"white" , borderBottomWidth:1 , margin:10}}></View>
+            {/* <View style={{borderBottomColor:"white" , borderBottomWidth:1 , margin:10}}></View> */}
+            <Text style={styles.StyleText}>Movies</Text>
             {Movies.length === 0 ? (
                 <Loading />
             ) : (
@@ -50,4 +51,13 @@ const ListMovies = ({navigation}) => {
 
 export default ListMovies
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    StyleText:{
+        color:"white",
+        margin:10,
+        fontWeight:'bold',
+        fontSize:30,
+        textAlign:'center',
+        textDecorationLine:'underline'
+    }
+})
