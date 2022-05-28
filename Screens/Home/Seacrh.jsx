@@ -34,23 +34,6 @@ const Seacrh = ({ navigation }) => {
         )
     })
 
-    // const searchfilteredit = (text) => {
-    //     if (text) {
-    //       if (!products?.length) return;
-    //       let tem = [];
-    //       products.map((p) =>
-    
-    //         p.productName
-    //           .toUpperCase()
-    //           .includes(text.toUpperCase()) ? tem.push(p) : null
-    
-    //       );
-    //       setFilterProducts(tem);
-    //       setflag(true);
-    
-    //     }
-    //   };
-
       const filteredMovies =(text)=>{
           if(text){
               if(!Movies?.length)return;
@@ -89,7 +72,7 @@ const Seacrh = ({ navigation }) => {
             ) : (
                 <FlatList
                     data={Movies}
-                    keyExtractor={(item, index) => item.Key}
+                    keyExtractor={(item, index) => index.toString()}
                     renderItem={renderRow}
                 />
             )}
@@ -112,6 +95,6 @@ const styles = StyleSheet.create({
         width: width - 50,
         margin: 10,
         height: width / 12,
-        padding: 10
+        padding: 5
     }
 })

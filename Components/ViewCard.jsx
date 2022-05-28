@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, Dimensions } from 'react-native'
+import { StyleSheet, Text, View, Image, Dimensions , TouchableWithoutFeedback} from 'react-native'
 import React from 'react'
 import { Ionicons } from "@expo/vector-icons";
 
@@ -8,6 +8,9 @@ const { width, height } = Dimensions.get('window');
 
 const ViewCard = ({ title, poster, overview, rating, release_date, navigation  }) => {
     return (
+        <TouchableWithoutFeedback onPress={()=>{
+            navigation.navigate("DetailsScreen" , {title:title ,poster:poster , overview:overview , rating:rating , release_date:release_date })
+        }}>
         <View style={styles.container}>
             <View style={styles.outerContainer}>
                 <Image
@@ -23,7 +26,7 @@ const ViewCard = ({ title, poster, overview, rating, release_date, navigation  }
                     </Text>
                     <View style={styles.outerContainer}>
                         <Ionicons name="time-outline" size={25} color={'white'} />
-                        <Text style={styles.textTitle}>{release_date}</Text>
+                        <Text style={styles.TextTime}>{release_date}</Text>
                     </View>
                 </View>
                 <View >
@@ -34,6 +37,7 @@ const ViewCard = ({ title, poster, overview, rating, release_date, navigation  }
             </View>
 
         </View>
+        </TouchableWithoutFeedback>
     )
 }
 
@@ -46,21 +50,26 @@ const styles = StyleSheet.create({
         backgroundColor: "black",
         padding: 5,
         margin: 10,
-        width: width - 20
+        width: width 
     },
     outerContainer: {
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+
     },
     posterImage: {
         borderRadius: 20,
         width: width / 4,
         height: width / 4 +30,
-        elevation:2,
         
     },
     textTitle: {
         color: "white",
+        width: 200,
+        margin: 5
+    },
+    TextTime:{
+        color: "gold",
         width: 200,
         margin: 5
     }

@@ -8,8 +8,9 @@ const Header = ({navigation}) => {
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={()=>{
+                navigation.navigate("Categories");
             }}>
-                <Ionicons name="apps-outline" size={30} color={'white'} />
+                <Ionicons name="list-outline" size={30} color={'white'} />
             </TouchableOpacity>
             <TouchableOpacity onPress={()=>{
                 navigation.navigate("Seacrh")

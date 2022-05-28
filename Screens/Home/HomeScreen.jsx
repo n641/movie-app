@@ -7,13 +7,13 @@ import ListMovies from './componentsOfHome/ListMovies'
 const HomeScreen = ({navigation}) => {
   
   return (
-    <ScrollView style={{backgroundColor:"black"}}>
     <View style={styles.screen}>
       <Header navigation={navigation} />
+      <ScrollView style={{backgroundColor:"black"}}>
      <BestRating navigation={navigation}/>
-    </View>
     <ListMovies navigation={navigation}/>
      </ScrollView> 
+    </View>
   )
 }
 
@@ -22,6 +22,7 @@ export default HomeScreen
 const styles= StyleSheet.create({
   screen:{
     flexGrow:1,
-    justifyContent:'center'
+    justifyContent:'center',
+    backgroundColor:"black"
   }
 })

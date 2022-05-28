@@ -50,6 +50,5 @@ const getBackdropPath = (path) =>
         genres: genre_ids.map((genre) => genres[genre]),
       })
     );
-  
     return movies;
   };
