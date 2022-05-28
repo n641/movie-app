@@ -1,19 +1,39 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, ScrollView } from 'react-native';
+
 import HomeScreen from './Screens/Home/HomeScreen';
+import Seacrh from './Screens/Home/Seacrh';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+
+const { width, height } = Dimensions.get('window');
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-     <HomeScreen/>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator  >
+        <Stack.Screen name="Home"
+          component={HomeScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen name="Seacrh"
+          component={Seacrh}
+          options={{
+            title: 'Search',
+            headerStyle: {
+              backgroundColor: 'black',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+        />
+
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'black',
-    alignItems:'center'
-  },
-});

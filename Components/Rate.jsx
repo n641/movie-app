@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View, Dimensions } from 'react-native'
 import React from 'react'
 import { Ionicons } from "@expo/vector-icons";
-{/* <Ionicons name="lock-closed-outline" size={80} color={'yellow'} /> */ }
 
 
 const { width, height } = Dimensions.get('window');

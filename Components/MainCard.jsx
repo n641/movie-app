@@ -5,7 +5,7 @@ import Rate from './Rate';
 import Generes from './Generes';
 const { width, height } = Dimensions.get('window');
 
-const SPACING = 15 ;
+const SPACING = 15;
 const SizeOfItem = Platform.OS === 'ios' ? width / 1.3 : width / 1.2;
 
 const MainCard = ({ title, poster, overview, rating, genres, index, scrollX }) => {
@@ -13,15 +13,15 @@ const MainCard = ({ title, poster, overview, rating, genres, index, scrollX }) =
   const translateY = scrollX.interpolate({
     inputRange: [
       (index - 2) * SizeOfItem,
-      (index - 1) * SizeOfItem, 
+      (index - 1) * SizeOfItem,
       index * SizeOfItem,
     ],
-    outputRange: [100, 50, 100],
+    outputRange: [50, -10, 50],
     extrapolate: "clamp"
   });
 
   return (
-    <Animated.View style={{ width: SizeOfItem }}>
+    <Animated.View style={{ width: SizeOfItem , marginBottom:20 }}>
       <Animated.View style={[styles.container,
       { transform: [{ translateY }] }
       ]}
@@ -34,7 +34,7 @@ const MainCard = ({ title, poster, overview, rating, genres, index, scrollX }) =
         <View style={{ alignItems: 'center', justifyContent: 'center' }}>
           <Rate rating={rating} />
           <Generes genres={genres} />
-          <Text numberOfLines={3} style={{ fontSize: 12, width: SizeOfItem - 100, textAlign: 'center' }}>{overview}</Text>
+          <Text numberOfLines={3} style={{ fontSize: 12, width: SizeOfItem - 100, textAlign: 'center', color: "white" }}>{overview}</Text>
         </View>
       </Animated.View>
     </Animated.View>
@@ -47,9 +47,10 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: 34,
     marginHorizontal: SPACING,
-    padding: SPACING ,
+    padding: SPACING,
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: 'black',
+    borderColor: "white", borderWidth: 1
   },
   posterImage: {
     width: SizeOfItem - 50,
@@ -62,5 +63,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     // fontSize: title.length>20?width/29:width/20,
     textAlign: 'center',
+    color: "white"
   }
 })
