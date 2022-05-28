@@ -13,7 +13,7 @@ const SizeOfItem = Platform.OS === 'ios' ? width / 1.3 : width / 1.2;
 const EMPTY_ITEM_SIZE = (width - SizeOfItem) / 2;
 
 
-const BestRating = () => {
+const BestRating = ({navigation}) => {
 
     const [Movies, setMovies] = useState([]);
     const scrollX = React.useRef(new Animated.Value(0)).current;
@@ -45,7 +45,7 @@ const BestRating = () => {
                 <MainCard title={item.title} poster={item.poster}
                     overview={item.description} release_date={item.releaseDate}
                     SizeOfItem={SizeOfItem} rating={item.rating} genres={item.genres}
-                    index={index} scrollX={scrollX}
+                    index={index} scrollX={scrollX} navigation={navigation}
                 />
             </Animated.View>
         )

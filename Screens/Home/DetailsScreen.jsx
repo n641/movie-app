@@ -4,7 +4,6 @@ import { Ionicons } from "@expo/vector-icons";
 
 
 import Rate from '../../Components/Rate';
-import Generes from '../../Components/Generes';
 
 const { width, height } = Dimensions.get('window');
 
@@ -20,7 +19,7 @@ const DetailsScreen = ({ navigation, route }) => {
             <View style={{ marginTop: 50 }}>
                 <View style={styles.container}>
                     <View>
-                        <Text style={styles.textTitle}>{title}</Text>
+                        <Text style={[styles.textTitle , {fontSize:title.length>10?20:30}]}>{title}</Text>
                         <View style={styles.containerTme}>
                             <Ionicons name="time-outline" size={25} color={'white'} />
                             <Text style={styles.TextTime}>{release_date}</Text>

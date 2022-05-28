@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, Dimensions, Platform, Animated } from 'react-native'
+import { StyleSheet, Text, View, Image, Dimensions, Platform, Animated , TouchableWithoutFeedback } from 'react-native'
 import React from 'react'
 
 import Rate from './Rate';
@@ -8,7 +8,7 @@ const { width, height } = Dimensions.get('window');
 const SPACING = 15;
 const SizeOfItem = Platform.OS === 'ios' ? width / 1.3 : width / 1.2;
 
-const MainCard = ({ title, poster, overview, rating, genres, index, scrollX }) => {
+const MainCard = ({ title, poster, overview, rating, genres,release_date, index, scrollX , navigation }) => {
 
   const translateY = scrollX.interpolate({
     inputRange: [
@@ -21,6 +21,9 @@ const MainCard = ({ title, poster, overview, rating, genres, index, scrollX }) =
   });
 
   return (
+    <TouchableWithoutFeedback onPress={()=>{
+      navigation.navigate("DetailsScreen" , {title:title ,poster:poster , overview:overview , rating:rating , release_date:release_date })
+    }}>
     <Animated.View style={{ width: SizeOfItem , marginBottom:20 }}>
       <Animated.View style={[styles.container,
       { transform: [{ translateY }] }
@@ -38,6 +41,7 @@ const MainCard = ({ title, poster, overview, rating, genres, index, scrollX }) =
         </View>
       </Animated.View>
     </Animated.View>
+    </TouchableWithoutFeedback>
   )
 }
 
