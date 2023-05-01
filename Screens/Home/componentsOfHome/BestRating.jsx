@@ -4,7 +4,6 @@ import React, { useState, useEffect, useRef } from 'react'
 import { getMovies } from '../../../api'
 import MainCard from '../../../Components/MainCard'
 import Loading from '../../../Components/Loading'
-import Backdrop from './Backdrop'
 
 
 const { width, height } = Dimensions.get('window');

@@ -23,16 +23,16 @@ const genres = [
 ];
 
 
-const Categories = ({navigation}) => {
+const Categories = ({ navigation }) => {
     return (
         <View style={styles.screen}>
             <ScrollView>
                 <View style={styles.containertest}>
                     {genres.map((name, i) => (
-                        <TouchableOpacity key={i} onPress={()=>{
-                            navigation.navigate("Results" , {type:name})
+                        <TouchableOpacity key={i} onPress={() => {
+                            navigation.navigate("Results", { type: name })
                         }}>
-                            <Text  style={styles.TextStyle}>{name}</Text>
+                            <Text style={styles.TextStyle}>{name}</Text>
                         </TouchableOpacity>
                     ))}
 
