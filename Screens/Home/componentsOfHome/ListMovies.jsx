@@ -5,6 +5,7 @@ import ViewCard from '../../../Components/ViewCard'
 import Loading from '../../../Components/Loading'
 import axios from "axios";
 import BestRating from './BestRating';
+import Header from './Header';
 
 const { width, height } = Dimensions.get('window');
 
@@ -56,6 +57,7 @@ const ListMovies = ({ navigation }) => {
     const listheadercom = () => {
         return (
             <View>
+                <Header navigation={navigation} />
                 <BestRating navigation={navigation} />
                 <Text style={styles.StyleText}>Movies</Text>
             </View>

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, FlatList, Dimensions, Platform, ScrollView } from 'react-native'
+import { StyleSheet, Text, View, FlatList, Dimensions, Platform, ScrollView , StatusBar} from 'react-native'
 import React, { useState, useEffect } from 'react'
 import BestRating from './componentsOfHome/BestRating'
 import Header from './componentsOfHome/Header'
@@ -8,7 +8,7 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <View style={styles.screen}>
-      <Header navigation={navigation} />
+    <StatusBar hidden={false} backgroundColor={'black'} />
         <ListMovies navigation={navigation} />
     </View>
   )
