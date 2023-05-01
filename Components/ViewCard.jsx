@@ -48,9 +48,10 @@ const styles = StyleSheet.create({
         borderColor: "white",
         borderRadius: 25,
         backgroundColor: "black",
-        padding: 5,
+        // padding: 5,
         margin: 10,
-        width: width 
+        width: width ,
+        justifyContent:"space-around"
     },
     outerContainer: {
         flexDirection: 'row',

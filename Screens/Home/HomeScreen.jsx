@@ -9,10 +9,7 @@ const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.screen}>
       <Header navigation={navigation} />
-      <ScrollView style={{ backgroundColor: "black" }}>
-        <BestRating navigation={navigation} />
         <ListMovies navigation={navigation} />
-      </ScrollView>
     </View>
   )
 }

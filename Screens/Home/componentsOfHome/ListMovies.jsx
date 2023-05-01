@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import ViewCard from '../../../Components/ViewCard'
 import Loading from '../../../Components/Loading'
 import axios from "axios";
-
+import BestRating from './BestRating';
 
 const { width, height } = Dimensions.get('window');
 
@@ -35,11 +35,11 @@ const ListMovies = ({ navigation }) => {
         getMovies();
     }, [page]);
 
-    const renderLoader = () =>{
-        return(
+    const renderLoader = () => {
+        return (
             isLoading ?
-            <Loading/> 
-            : null
+                <Loading />
+                : null
         )
     }
 
@@ -52,9 +52,18 @@ const ListMovies = ({ navigation }) => {
             </View>
         )
     })
+
+    const listheadercom = () => {
+        return (
+            <View>
+                <BestRating navigation={navigation} />
+                <Text style={styles.StyleText}>Movies</Text>
+            </View>
+        )
+    }
     return (
         <View style={{ flex: 1 }}>
-            <Text style={styles.StyleText}>Movies</Text>
+            {/* <Text style={styles.StyleText}>Movies</Text> */}
             {Movies.length === 0 ? (
                 <Loading />
             ) : (
@@ -62,9 +71,10 @@ const ListMovies = ({ navigation }) => {
                     data={Movies}
                     keyExtractor={(item, index) => index.toString()}
                     renderItem={renderRow}
-                    ListFooterComponent={()=>renderLoader()}
-                    onEndReached={()=>loadMoreIteam()}
+                    ListFooterComponent={() => renderLoader()}
+                    onEndReached={() => loadMoreIteam()}
                     onEndReachedThreshold={0}
+                    ListHeaderComponent={listheadercom}
                 />
             )}
 

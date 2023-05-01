@@ -28,11 +28,9 @@ const Results = ({ navigation, route }) => {
         let temp = [];
         Movies.map((movie) =>
             movie.genres.map((name) => {
-                console.log("gggggggg")
                 name == type ?
                     temp.push(movie) : null
             }))
-        console.log(temp);
         setresults(temp);
         setIsLoadding(false)
 

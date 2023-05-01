@@ -13,11 +13,15 @@ const Seacrh = ({ navigation }) => {
     const [Movies, setMovies] = useState([]);
     const [search, setsearch] = useState('');
 
+    const HandleSearch = (name)=>{
+        setsearch(name)
+        filteredMovies(search)
+    }
+
     useEffect(() => {
         const fetchData = async () => {
             const movies = await getMovies();
             setMovies(movies);
-            console.log(...Movies)
         };
         if (Movies.length === 0 ) {
             fetchData(Movies);
@@ -53,7 +57,7 @@ const Seacrh = ({ navigation }) => {
                     <TextInput
                         placeholder='Enter name of the movie'
                         placeholderTextColor={"gray"}
-                        onChangeText={setsearch}
+                        onChangeText={HandleSearch}
                         value={search}
                         style={{width:width - 50 , color:"white"}}
                         onChange={()=>{
